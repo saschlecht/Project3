@@ -7,7 +7,8 @@ import { setupCounter } from './counter.js'
 const clientId = 'YOUR_CLIENT_ID';
 const redirectUri = 'http://localhost:8080';
 
-let codeVerifier = generateRandomString(128);
+//let codeVerifier = generateRandomString(128);
+codeVerifier = generateRandomString(128);
 
 generateCodeChallenge(codeVerifier).then(codeChallenge => {
   let state = generateRandomString(16);
@@ -61,6 +62,42 @@ const response = fetch('https://accounts.spotify.com/api/token', {
     console.error('Error:', error);
   });
 
-  //generate playlist code
 
+
+
+//generate playlist code
+console.log(12345);         //how to print something to console?? this doesn't work
+const songs = await genreSearch(accessToken, "Pop");
+
+async function genreSearch(token, input) {
+  let genre = "genre:" + input
+  const result = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(genre)}&type=track`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return await result.json()
+}
+
+class Song {
+  constructor() {
+    
+  }
+}
+
+//adjacency list version
+class ListGraph{
+  constructor() {
+      this.adjacencyList = {}
+  }
   
+  addNode(node) {
+      if (!this.adjacencyList[node]) this.adjacencyList[node] = []
+  }
+}
+
+
+//adjacency matrix version
+

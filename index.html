@@ -22,35 +22,52 @@
         <h4>
           <label for="genre">Pick a Genre:</label> 
           <select name="genre" id="genre"> 
-              <option value="Pop">Pop</option> 
-              <option value="Rock">Rock</option> 
-              <option value="Country">Country</option> 
-              <option value="R&B">R&B</option> 
-              <option value="Rap">Rap</option> 
-              <option value="Alternative">Alternative</option> 
-              <option value="Metal">Metal</option> 
-              <option value="Jazz">Jazz</option> 
-              <option value="Hip-Hop">Hip-Hop</option> 
-              <option value="Electronic">Electronic</option> 
+              <option genre="Pop">Pop</option> 
+              <option genre="Rock">Rock</option> 
+              <option genre="Country">Country</option> 
+              <option genre="R&B">R&B</option> 
+              <option genre="Rap">Rap</option> 
+              <option genre="Alternative">Alternative</option> 
+              <option genre="Metal">Metal</option> 
+              <option genre="Jazz">Jazz</option> 
+              <option genre="Hip-Hop">Hip-Hop</option> 
+              <option genre="Electronic">Electronic</option> 
           </select>
         <h4>
           <label for="Mood1">Pick the initial mood:</label> 
           <select name="Mood1" id="Mood1"> 
-              <option value="Happy">Happy</option> 
-              <option value="Sad">Sad</option> 
-              <option value="highEnergy">High-Energy</option>
-              <option value="lowEnergy">Low-Energy</option>
+              <option mood1="Happy">Happy</option> 
+              <option mood1="Sad">Sad</option> 
+              <option mood1="highEnergy">High-Energy</option>
+              <option mood1="lowEnergy">Low-Energy</option>
           </select>
         <h4>
-          <label for="Mood1">Pick the final mood:</label> 
-          <select name="Mood1" id="Mood1"> 
-              <option value="Sad">Sad</option> 
-              <option value="Happy">Happy</option> 
-              <option value="highEnergy">High-Energy</option>
-              <option value="lowEnergy">Low-Energy</option>
+          <label for="Mood2">Pick the final mood:</label> 
+          <select name="Mood2" id="Mood2"> 
+              <option mood2="Sad">Sad</option> 
+              <option mood2="Happy">Happy</option> 
+              <option mood2="highEnergy">High-Energy</option>
+              <option mood2="lowEnergy">Low-Energy</option>
           </select>
         <h3>Generate Playlist
         <h3> 
-        <button type="button">Generate My Playlist</button>
+        <button onclick="buttonFunction()">Generate My Playlist</button>
+        <p id="print1"></p>
+        <p id="print2"></p>
+        <p id="print3"></p>
+        <script>
+          function buttonFunction() {
+            genre = document.querySelector("select").value;
+
+            //this line just prints the genre
+            document.getElementById("print1").innerHTML = genre;
+            document.getElementById("print2").innerHTML = "second lineee";
+
+            //can't tell if we can use token here but genre doesn't exist outside this html i don't think
+            songs = genreSearch(token, genre);
+            document.getElementById("print3").innerHTML = "got past genreSearch call";
+          }
+        </script>
     </body>
 </html>
+

@@ -81,23 +81,97 @@ async function genreSearch(token, input) {
   return await result.json()
 }
 
+//retrieve number of songs in genre
+//count = ?
+
+adjList = new ListGraph()
+for (let i = 0; i < count; i++) {
+  //retrieve song values from json object
+  //song = new Song(dance, ener, live)
+  //adjList1.addNode(song)
+}
+
+//traverse adjList
+//we have genre, mood1, and mood2
+
+startDan;
+endDan;
+startEne;
+endEne;
+startLiv;
+endLiv;
+
+//set start and end track feature values to their appopriate amounts
+if (mood1 == "happy") {
+
+}
+if (mood1 == "sad") {
+  
+}
+if (mood1 == "excited") {
+  
+}
+if (mood1 == "withdrawn") {
+  
+}
+if (mood2 == "happy") {
+
+}
+if (mood2 == "sad") {
+  
+}
+if (mood2 == "excited") {
+  
+}
+if (mood2 == "withdrawn") {
+  
+}
+
+//set currSong to random song in genre with the given starting mood values
+
+playlist = new Array();
+
+//while currSong's values are not equal to the values of mood2:
+  //from currSong's adjacent songs with values in between current mood and mood2, add song 
+  //with values closest to mood2
+
 class Song {
-  constructor() {
-    
+  constructor(danceability, energy, liveness) {
+    this.danceability = danceability
+    this.energy = energy
+    this.liveness = liveness
   }
 }
 
 //adjacency list version
-class ListGraph{
+class ListGraph {
   constructor() {
-      this.adjacencyList = {}
+      this.adjacencyList = new Map()
   }
   
   addNode(node) {
+      //insert node with empty list of adjacent nodes
       if (!this.adjacencyList[node]) this.adjacencyList[node] = []
+
+      for (let [posAdj, arr] of this.adjacencyList) {
+        if (arr.find(node) != undefined) {
+          //current node is adjacent to this node
+          this.adjacencyList[node].push(posAdj)
+        }
+        else if (posAdj != node) {
+          //check difference between each song's values
+          dan = posAdj.danceability - this.danceability
+          ene = posAdj.energy - this.energy
+          liv = posAdj.liveness - this.liveness
+
+          if (dan > -0.1 && dan < 0.1 && ene > -0.1 && ene < 0.1 && liv > -0.1 && liv < 0.1) {
+            //if all attributes of the tracks are within 0.1 of each other
+            //add nodes to each other's vectors
+            adjacencyList[posAdj].push(node)
+            adjacencyList[node].push(posAdj)
+          }
+        }
+      }
   }
 }
-
-
-//adjacency matrix version
 

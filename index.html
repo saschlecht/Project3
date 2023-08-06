@@ -51,23 +51,40 @@
           </select>
         <h3>Generate Playlist
         <h3> 
-        <button onclick="buttonFunction()">Generate My Playlist</button>
-        <p id="print1"></p>
-        <p id="print2"></p>
-        <p id="print3"></p>
-        <script>
-          function buttonFunction() {
-            genre = document.querySelector("select").value;
-
-            //this line just prints the genre
-            document.getElementById("print1").innerHTML = genre;
-            document.getElementById("print2").innerHTML = "second lineee";
-
-            //can't tell if we can use token here but genre doesn't exist outside this html i don't think
-            songs = genreSearch(token, genre);
-            document.getElementById("print3").innerHTML = "got past genreSearch call";
+          <button onclick="buttonFunction()">Generate My Playlist</button>
+          <p id="print1"></p>
+          <p id="print2"></p>
+          <p id="print3"></p>
+          <p id="print4"></p>
+          <p id="print5"></p>
+          <p id="print6"></p>
+          <p id="print7"></p>
+          <p id="print8"></p>
+          <p id="print9"></p>
+          <p id="print10"></p>
+          <script>
+            function buttonFunction() {
+              genre = document.querySelector("select").value;
+  
+              //this line just prints the genre
+              document.getElementById("print1").innerHTML = genre;
+              document.getElementById("print2").innerHTML = "second lineee";
+              //document.getElementById("print3").innerHTML = "got past genreSearch call";
+              //can't tell if we can use token here but genre doesn't exist outside this html i don't think
+              if(genre == "Pop") {
+                document.getElementById("print3").innerHTML = "Single Ladies";
+                document.getElementById("print4").innerHTML = "Counting Stars";
+                document.getElementById("print5").innerHTML = "Since You've Been Gone";
+                document.getElementById("print6").innerHTML = "Poker Face";
+                document.getElementById("print7").innerHTML = "Levitating";
+                document.getElementById("print8").innerHTML = "Dynamite";
+                document.getElementById("print9").innerHTML = "Party in the USA";
+                document.getElementById("print10").innerHTML = "Work It";
+                document.getElementById("print11").innerHTML = "Starships";
+              }
           }
         </script>
     </body>
 </html>
+
 
